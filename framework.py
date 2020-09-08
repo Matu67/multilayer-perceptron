@@ -27,8 +27,5 @@ class Network():
     # We assume that structure has at least 3 elements
     def __init__(self, x, hiddens_struct, y):
         self.layers = [Layer(x, np.random.rand(hiddens_struct[0]), np.random.rand((len(x), hiddens_struct[0])))]
-        self.layers += foldr(lambda a, b: b.insert(0,Layer(np.zeros(y.shape),
-                                                           np.random.rand(b[0].n),
-                                                           np.random.rand((a.n, b[0].n)))),
-                             [self.output], hiddens_struct)
-        self.output += [Layer(np.zeros(y.shape), [], [])]
+        self.layers += foldr(lambda a, b: b.insert(0, Layer(np.zeros(y.shape), np.random.rand(b[0].n), np.random.rand((a.n, b[0].n)))), [self.layers], hiddens_struct)
+        self.layers += [Layer(np.zeros(y.shape), [], [])]
