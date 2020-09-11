@@ -3,6 +3,6 @@ import numpy as np
 
 test = Network(np.random.rand(8), [9, 16], 5)
 test.print()
-test.fill_nodes()
+test.forward_prop()
 print("-----------------------------------------")
 test.print()

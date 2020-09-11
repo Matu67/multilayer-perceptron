@@ -22,7 +22,7 @@ class Network():
         for layer in self.layers:
             print(layer.W)
     
-    def fill_nodes(self):
+    def forward_prop(self):
         for i in range(1, len(self.layers)):
             self.layers[i].a = activation_func(np.add(np.matmul(self.layers[i - 1].W, self.layers[i - 1].a), self.layers[i - 1].b))
     
